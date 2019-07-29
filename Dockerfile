@@ -36,7 +36,7 @@ RUN \
     ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/libarchive" && \
-    make install-exec && \
+    make install && \
     ls -lR /libarchive && \
     cp -R /libarchive/usr/* /usr/
 
@@ -59,7 +59,7 @@ RUN \
     ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/curl" && \
-    make install-exec && \
+    make install && \
     ls -lR /curl && \
     cp -R /curl/usr/* /usr/
 
@@ -71,7 +71,7 @@ RUN \
     ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/libgpg-error" && \
-    make install-exec && \
+    make install && \
     ls -lR /libgpg-error && \
     cp -R /libgpg-error/usr/* /usr/
 
@@ -83,7 +83,7 @@ RUN \
     ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/libassuan" && \
-    make install-exec && \
+    make install && \
     ls -lR /libassuan && \
     cp -R /libassuan/usr/* /usr/
 
@@ -95,7 +95,7 @@ RUN \
     ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/gpgme" && \
-    make install-exec && \
+    make install && \
     ls -lR /gpgme && \
     cp -R /gpgme/usr/* /usr/
 
@@ -108,7 +108,7 @@ RUN \
     ./configure --with-static-libopkg --disable-shared --enable-gpg --enable-curl --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/opkg" && \
-    make install-exec && \
+    make install && \
     ls -lR /opkg
 
 RUN \
@@ -120,7 +120,7 @@ RUN \
     ../${GLIBC_BINARY}/configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/glibc" && \
-    make install-exec && \
+    make install && \
     ls -lR /glibc
 
 COPY make-4.2.1.patch .
@@ -133,7 +133,7 @@ RUN \
     ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/make" && \
-    make install-exec && \
+    make install && \
     ls -lR /make
 
 FROM busybox:glibc
