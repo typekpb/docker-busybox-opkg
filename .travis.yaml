@@ -1,0 +1,14 @@
+dist: trusty
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker build -t $DOCKER_USERNAME/busybox-opkg .
+      # test built image
+      - script: docker run --rm $DOCKER_USERNAME/busybox-opkg opkg-install coreutils-timeout
+      # push built image
+      - docker images
+      - docker tag docker-busybox-opkg $DOCKER_USERNAME/busybox-opkg
+      - docker push $DOCKER_USERNAME/busybox-opkg
