@@ -21,7 +21,7 @@ RUN \
     tar -zxf ${ZLIB_BINARY}.tar.gz
 RUN \
     cd ${ZLIB_BINARY} && \
-    ./configure --prefix=/usr && \
+    ./configure --prefix=/usr --without-man && \
     make --silent && \
     export DESTDIR="/zlib" && \
     make install && \
@@ -33,7 +33,7 @@ RUN \
     tar -zxf ${LIBARCHIVE_BINARY}.tar.gz
 RUN \
     cd ${LIBARCHIVE_BINARY} && \
-    ./configure --prefix=/usr && \
+    ./configure --prefix=/usr --without-man && \
     make --silent  && \
     export DESTDIR="/libarchive" && \
     make install && \
@@ -45,7 +45,7 @@ RUN \
     tar -zxf ${OPENSSL_BINARY}.tar.gz
 RUN \
     cd ${OPENSSL_BINARY} && \
-    ./config --prefix=/usr && \
+    ./config --prefix=/usr --without-man && \
     make --silent  && \
     make DESTDIR=/openssl install && \
     ls -lR /openssl && \
@@ -56,7 +56,7 @@ RUN \
     tar -zxf ${CURL_BINARY}.tar.gz
 RUN \
     cd ${CURL_BINARY} && \
-    ./configure --prefix=/usr && \
+    ./configure --prefix=/usr --without-man && \
     make --silent  && \
     export DESTDIR="/curl" && \
     make install && \
@@ -68,7 +68,7 @@ RUN \
     tar -jxf ${LIBGPGERROR_BINARY}.tar.bz2
 RUN \
     cd ${LIBGPGERROR_BINARY} && \
-    ./configure --prefix=/usr && \
+    ./configure --prefix=/usr --without-man && \
     make --silent  && \
     export DESTDIR="/libgpg-error" && \
     make install && \
@@ -80,7 +80,7 @@ RUN \
     tar -jxf ${LIBASSUAN_BINARY}.tar.bz2
 RUN \
     cd ${LIBASSUAN_BINARY} && \
-    ./configure --prefix=/usr && \
+    ./configure --prefix=/usr --without-man && \
     make --silent  && \
     export DESTDIR="/libassuan" && \
     make install && \
@@ -92,7 +92,7 @@ RUN \
     tar -jxf ${GPGME_BINARY}.tar.bz2
 RUN \
     cd ${GPGME_BINARY} && \
-    ./configure --prefix=/usr && \
+    ./configure --prefix=/usr --without-man && \
     make --silent  && \
     export DESTDIR="/gpgme" && \
     make install && \
@@ -105,7 +105,7 @@ RUN \
 RUN \
     cd ${OPKG_BINARY} && \
     ./autogen.sh && \
-    ./configure --with-static-libopkg --disable-shared --enable-gpg --enable-curl --prefix=/usr && \
+    ./configure --with-static-libopkg --disable-shared --enable-gpg --enable-curl --prefix=/usr --without-man && \
     make --silent  && \
     export DESTDIR="/opkg" && \
     make install && \
@@ -117,7 +117,7 @@ RUN \
 RUN \
     mkdir glibc-build && \
     cd glibc-build && \
-    ../${GLIBC_BINARY}/configure --prefix=/usr && \
+    ../${GLIBC_BINARY}/configure --prefix=/usr --without-man && \
     make --silent  && \
     export DESTDIR="/glibc" && \
     make install && \
@@ -130,7 +130,7 @@ RUN \
 RUN \
     patch -p0 < ../make-4.2.1.patch && \
     cd ${MAKE_BINARY} && \
-    ./configure --prefix=/usr && \
+    ./configure --prefix=/usr --without-man && \
     make --silent  && \
     export DESTDIR="/make" && \
     make install && \
