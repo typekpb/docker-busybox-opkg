@@ -13,8 +13,8 @@ ENV \
     MAKE_BINARY=make-4.2
 
 RUN \
-    apt-get update -qq && \
-    apt-get install -qq -y wget gcc libtool autoconf pkg-config libtool-bin bison python3 gawk
+    apt-get update -qq -o=Dpkg::Use-Pty=0 && \
+    apt-get install -qq -o=Dpkg::Use-Pty=0 -y wget gcc libtool autoconf pkg-config libtool-bin bison python3 gawk
 
 RUN \
     wget https://www.zlib.net/${ZLIB_BINARY}.tar.gz  && \
