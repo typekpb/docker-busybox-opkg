@@ -18,7 +18,7 @@ RUN \
 
 RUN \
     wget https://www.zlib.net/${ZLIB_BINARY}.tar.gz  && \
-    tar -zxvf ${ZLIB_BINARY}.tar.gz
+    tar -zxf ${ZLIB_BINARY}.tar.gz
 RUN \
     cd ${ZLIB_BINARY} && \
     ./configure --prefix=/usr && \
@@ -30,7 +30,7 @@ RUN \
 
 RUN \
     wget https://github.com/libarchive/libarchive/releases/download/v3.4.0/${LIBARCHIVE_BINARY}.tar.gz  && \
-    tar -zxvf ${LIBARCHIVE_BINARY}.tar.gz
+    tar -zxf ${LIBARCHIVE_BINARY}.tar.gz
 RUN \
     cd ${LIBARCHIVE_BINARY} && \
     ./configure --prefix=/usr && \
@@ -42,7 +42,7 @@ RUN \
 
 RUN \
     wget https://www.openssl.org/source/${OPENSSL_BINARY}.tar.gz  && \
-    tar -zxvf ${OPENSSL_BINARY}.tar.gz
+    tar -zxf ${OPENSSL_BINARY}.tar.gz
 RUN \
     cd ${OPENSSL_BINARY} && \
     ./config --prefix=/usr && \
@@ -53,7 +53,7 @@ RUN \
 
 RUN \
     wget https://curl.haxx.se/download/${CURL_BINARY}.tar.gz  && \
-    tar -zxvf ${CURL_BINARY}.tar.gz
+    tar -zxf ${CURL_BINARY}.tar.gz
 RUN \
     cd ${CURL_BINARY} && \
     ./configure --prefix=/usr && \
@@ -65,7 +65,7 @@ RUN \
 
 RUN \
     wget https://gnupg.org/ftp/gcrypt/libgpg-error/${LIBGPGERROR_BINARY}.tar.bz2 && \
-    tar -jxvf ${LIBGPGERROR_BINARY}.tar.bz2
+    tar -jxf ${LIBGPGERROR_BINARY}.tar.bz2
 RUN \
     cd ${LIBGPGERROR_BINARY} && \
     ./configure --prefix=/usr && \
@@ -77,7 +77,7 @@ RUN \
 
 RUN \
     wget https://gnupg.org/ftp/gcrypt/libassuan/${LIBASSUAN_BINARY}.tar.bz2 && \
-    tar -jxvf ${LIBASSUAN_BINARY}.tar.bz2
+    tar -jxf ${LIBASSUAN_BINARY}.tar.bz2
 RUN \
     cd ${LIBASSUAN_BINARY} && \
     ./configure --prefix=/usr && \
@@ -89,7 +89,7 @@ RUN \
 
 RUN \
     wget https://gnupg.org/ftp/gcrypt/gpgme/${GPGME_BINARY}.tar.bz2 && \
-    tar -jxvf ${GPGME_BINARY}.tar.bz2
+    tar -jxf ${GPGME_BINARY}.tar.bz2
 RUN \
     cd ${GPGME_BINARY} && \
     ./configure --prefix=/usr && \
@@ -101,7 +101,7 @@ RUN \
 
 RUN \
     wget https://git.yoctoproject.org/cgit/cgit.cgi/opkg/snapshot/${OPKG_BINARY}.tar.gz  && \
-    tar -zxvf ${OPKG_BINARY}.tar.gz
+    tar -zxf ${OPKG_BINARY}.tar.gz
 RUN \
     cd ${OPKG_BINARY} && \
     ./autogen.sh && \
@@ -113,7 +113,7 @@ RUN \
 
 RUN \
     wget https://ftp.gnu.org/gnu/glibc/${GLIBC_BINARY}.tar.bz2 && \
-    tar -jxvf ${GLIBC_BINARY}.tar.bz2
+    tar -jxf ${GLIBC_BINARY}.tar.bz2
 RUN \
     mkdir glibc-build && \
     cd glibc-build && \
@@ -126,7 +126,7 @@ RUN \
 COPY make-4.2.1.patch .
 RUN \
     wget https://ftp.gnu.org/gnu/make/${MAKE_BINARY}.tar.bz2 && \
-    tar -jxvf ${MAKE_BINARY}.tar.bz2
+    tar -jxf ${MAKE_BINARY}.tar.bz2
 RUN \
     patch -p0 < ../make-4.2.1.patch && \
     cd ${MAKE_BINARY} && \
