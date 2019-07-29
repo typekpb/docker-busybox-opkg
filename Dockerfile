@@ -3,6 +3,7 @@ FROM ubuntu:bionic AS opkg-builder
 ENV \
     ZLIB_BINARY=zlib-1.2.11 \
     LIBARCHIVE_BINARY=libarchive-3.4.0 \
+    OPENSSL_BINARY=openssl-1.1.1c \
     CURL_BINARY=curl-7.65.3 \
     LIBASSUAN_BINARY=libassuan-2.5.3 \
     LIBGPGERROR_BINARY=libgpg-error-1.36 \
