@@ -133,8 +133,7 @@ RUN \
     make && \
     export DESTDIR="/make" && \
     make install && \
-    ls -lR /make && \
-    cp -R /make/usr/* /usr/
+    ls -lR /make
 
 FROM busybox:glibc
 
