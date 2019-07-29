@@ -47,7 +47,7 @@ RUN \
     cd ${OPENSSL_BINARY} && \
     ./config --prefix=/usr && \
     make --silent  && \
-    make DESTDIR=/openssl install && \
+    make DESTDIR=/openssl install_sw && \
     ls -lR /openssl && \
     cp -R /openssl/usr/* /usr/
 
@@ -123,7 +123,7 @@ RUN \
     make install && \
     ls -lR /glibc
 
-COPY make-4.2.1.patch .
+COPY opkg-builder/ ./
 RUN \
     wget https://ftp.gnu.org/gnu/make/${MAKE_BINARY}.tar.bz2 && \
     tar -jxf ${MAKE_BINARY}.tar.bz2
