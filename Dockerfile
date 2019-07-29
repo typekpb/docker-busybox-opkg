@@ -21,10 +21,10 @@ RUN \
     tar -zxf ${ZLIB_BINARY}.tar.gz
 RUN \
     cd ${ZLIB_BINARY} && \
-    ./configure --prefix=/usr --without-man && \
+    ./configure --prefix=/usr && \
     make --silent && \
     export DESTDIR="/zlib" && \
-    make install && \
+    make install-exec && \
     ls -lR /zlib && \
     cp -R /zlib/usr/* /usr/
 
@@ -33,10 +33,10 @@ RUN \
     tar -zxf ${LIBARCHIVE_BINARY}.tar.gz
 RUN \
     cd ${LIBARCHIVE_BINARY} && \
-    ./configure --prefix=/usr --without-man && \
+    ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/libarchive" && \
-    make install && \
+    make install-exec && \
     ls -lR /libarchive && \
     cp -R /libarchive/usr/* /usr/
 
@@ -45,7 +45,7 @@ RUN \
     tar -zxf ${OPENSSL_BINARY}.tar.gz
 RUN \
     cd ${OPENSSL_BINARY} && \
-    ./config --prefix=/usr --without-man && \
+    ./config --prefix=/usr && \
     make --silent  && \
     make DESTDIR=/openssl install && \
     ls -lR /openssl && \
@@ -56,10 +56,10 @@ RUN \
     tar -zxf ${CURL_BINARY}.tar.gz
 RUN \
     cd ${CURL_BINARY} && \
-    ./configure --prefix=/usr --without-man && \
+    ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/curl" && \
-    make install && \
+    make install-exec && \
     ls -lR /curl && \
     cp -R /curl/usr/* /usr/
 
@@ -68,10 +68,10 @@ RUN \
     tar -jxf ${LIBGPGERROR_BINARY}.tar.bz2
 RUN \
     cd ${LIBGPGERROR_BINARY} && \
-    ./configure --prefix=/usr --without-man && \
+    ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/libgpg-error" && \
-    make install && \
+    make install-exec && \
     ls -lR /libgpg-error && \
     cp -R /libgpg-error/usr/* /usr/
 
@@ -80,10 +80,10 @@ RUN \
     tar -jxf ${LIBASSUAN_BINARY}.tar.bz2
 RUN \
     cd ${LIBASSUAN_BINARY} && \
-    ./configure --prefix=/usr --without-man && \
+    ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/libassuan" && \
-    make install && \
+    make install-exec && \
     ls -lR /libassuan && \
     cp -R /libassuan/usr/* /usr/
 
@@ -92,10 +92,10 @@ RUN \
     tar -jxf ${GPGME_BINARY}.tar.bz2
 RUN \
     cd ${GPGME_BINARY} && \
-    ./configure --prefix=/usr --without-man && \
+    ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/gpgme" && \
-    make install && \
+    make install-exec && \
     ls -lR /gpgme && \
     cp -R /gpgme/usr/* /usr/
 
@@ -105,10 +105,10 @@ RUN \
 RUN \
     cd ${OPKG_BINARY} && \
     ./autogen.sh && \
-    ./configure --with-static-libopkg --disable-shared --enable-gpg --enable-curl --prefix=/usr --without-man && \
+    ./configure --with-static-libopkg --disable-shared --enable-gpg --enable-curl --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/opkg" && \
-    make install && \
+    make install-exec && \
     ls -lR /opkg
 
 RUN \
@@ -117,10 +117,10 @@ RUN \
 RUN \
     mkdir glibc-build && \
     cd glibc-build && \
-    ../${GLIBC_BINARY}/configure --prefix=/usr --without-man && \
+    ../${GLIBC_BINARY}/configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/glibc" && \
-    make install && \
+    make install-exec && \
     ls -lR /glibc
 
 COPY make-4.2.1.patch .
@@ -130,10 +130,10 @@ RUN \
 RUN \
     patch -p0 < ../make-4.2.1.patch && \
     cd ${MAKE_BINARY} && \
-    ./configure --prefix=/usr --without-man && \
+    ./configure --prefix=/usr && \
     make --silent  && \
     export DESTDIR="/make" && \
-    make install && \
+    make install-exec && \
     ls -lR /make
 
 FROM busybox:glibc
