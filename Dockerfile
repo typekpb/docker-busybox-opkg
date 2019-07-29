@@ -24,7 +24,7 @@ RUN \
     ./configure --prefix=/usr && \
     make --silent && \
     export DESTDIR="/zlib" && \
-    make install-exec && \
+    make install && \
     ls -lR /zlib && \
     cp -R /zlib/usr/* /usr/
 
