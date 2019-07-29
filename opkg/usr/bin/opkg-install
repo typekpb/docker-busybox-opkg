@@ -1,0 +1,4 @@
+#!/bin/sh
+opkg -f /etc/opkg.conf update
+opkg -f /etc/opkg.conf install $@
+rm -rf /var/opkg-lists
