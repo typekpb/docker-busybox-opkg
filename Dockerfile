@@ -22,7 +22,7 @@ RUN \
 RUN \
     cd ${ZLIB_BINARY} && \
     ./configure --prefix=/usr && \
-    make && \
+    make --silent && \
     export DESTDIR="/zlib" && \
     make install && \
     ls -lR /zlib && \
@@ -34,7 +34,7 @@ RUN \
 RUN \
     cd ${LIBARCHIVE_BINARY} && \
     ./configure --prefix=/usr && \
-    make && \
+    make --silent  && \
     export DESTDIR="/libarchive" && \
     make install && \
     ls -lR /libarchive && \
@@ -46,7 +46,7 @@ RUN \
 RUN \
     cd ${OPENSSL_BINARY} && \
     ./config --prefix=/usr && \
-    make && \
+    make --silent  && \
     make DESTDIR=/openssl install && \
     ls -lR /openssl && \
     cp -R /openssl/usr/* /usr/
@@ -57,7 +57,7 @@ RUN \
 RUN \
     cd ${CURL_BINARY} && \
     ./configure --prefix=/usr && \
-    make && \
+    make --silent  && \
     export DESTDIR="/curl" && \
     make install && \
     ls -lR /curl && \
@@ -69,7 +69,7 @@ RUN \
 RUN \
     cd ${LIBGPGERROR_BINARY} && \
     ./configure --prefix=/usr && \
-    make && \
+    make --silent  && \
     export DESTDIR="/libgpg-error" && \
     make install && \
     ls -lR /libgpg-error && \
@@ -81,7 +81,7 @@ RUN \
 RUN \
     cd ${LIBASSUAN_BINARY} && \
     ./configure --prefix=/usr && \
-    make && \
+    make --silent  && \
     export DESTDIR="/libassuan" && \
     make install && \
     ls -lR /libassuan && \
@@ -93,7 +93,7 @@ RUN \
 RUN \
     cd ${GPGME_BINARY} && \
     ./configure --prefix=/usr && \
-    make && \
+    make --silent  && \
     export DESTDIR="/gpgme" && \
     make install && \
     ls -lR /gpgme && \
@@ -106,7 +106,7 @@ RUN \
     cd ${OPKG_BINARY} && \
     ./autogen.sh && \
     ./configure --with-static-libopkg --disable-shared --enable-gpg --enable-curl --prefix=/usr && \
-    make && \
+    make --silent  && \
     export DESTDIR="/opkg" && \
     make install && \
     ls -lR /opkg
@@ -118,7 +118,7 @@ RUN \
     mkdir glibc-build && \
     cd glibc-build && \
     ../${GLIBC_BINARY}/configure --prefix=/usr && \
-    make && \
+    make --silent  && \
     export DESTDIR="/glibc" && \
     make install && \
     ls -lR /glibc
@@ -131,7 +131,7 @@ RUN \
     patch -p0 < ../make-4.2.1.patch && \
     cd ${MAKE_BINARY} && \
     ./configure --prefix=/usr && \
-    make && \
+    make --silent  && \
     export DESTDIR="/make" && \
     make install && \
     ls -lR /make
