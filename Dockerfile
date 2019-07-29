@@ -17,7 +17,7 @@ RUN \
     apt-get install -qq -o=Dpkg::Use-Pty=0 -y wget gcc libtool autoconf pkg-config libtool-bin bison python3 gawk
 
 RUN \
-    wget https://www.zlib.net/${ZLIB_BINARY}.tar.gz  && \
+    wget -q https://www.zlib.net/${ZLIB_BINARY}.tar.gz  && \
     tar -zxf ${ZLIB_BINARY}.tar.gz
 RUN \
     cd ${ZLIB_BINARY} && \
@@ -29,7 +29,7 @@ RUN \
     cp -R /zlib/usr/* /usr/
 
 RUN \
-    wget https://github.com/libarchive/libarchive/releases/download/v3.4.0/${LIBARCHIVE_BINARY}.tar.gz  && \
+    wget -q https://github.com/libarchive/libarchive/releases/download/v3.4.0/${LIBARCHIVE_BINARY}.tar.gz  && \
     tar -zxf ${LIBARCHIVE_BINARY}.tar.gz
 RUN \
     cd ${LIBARCHIVE_BINARY} && \
@@ -41,7 +41,7 @@ RUN \
     cp -R /libarchive/usr/* /usr/
 
 RUN \
-    wget https://www.openssl.org/source/${OPENSSL_BINARY}.tar.gz  && \
+    wget -q https://www.openssl.org/source/${OPENSSL_BINARY}.tar.gz  && \
     tar -zxf ${OPENSSL_BINARY}.tar.gz
 RUN \
     cd ${OPENSSL_BINARY} && \
@@ -52,7 +52,7 @@ RUN \
     cp -R /openssl/usr/* /usr/
 
 RUN \
-    wget https://curl.haxx.se/download/${CURL_BINARY}.tar.gz  && \
+    wget -q https://curl.haxx.se/download/${CURL_BINARY}.tar.gz  && \
     tar -zxf ${CURL_BINARY}.tar.gz
 RUN \
     cd ${CURL_BINARY} && \
@@ -64,7 +64,7 @@ RUN \
     cp -R /curl/usr/* /usr/
 
 RUN \
-    wget https://gnupg.org/ftp/gcrypt/libgpg-error/${LIBGPGERROR_BINARY}.tar.bz2 && \
+    wget -q https://gnupg.org/ftp/gcrypt/libgpg-error/${LIBGPGERROR_BINARY}.tar.bz2 && \
     tar -jxf ${LIBGPGERROR_BINARY}.tar.bz2
 RUN \
     cd ${LIBGPGERROR_BINARY} && \
@@ -76,7 +76,7 @@ RUN \
     cp -R /libgpg-error/usr/* /usr/
 
 RUN \
-    wget https://gnupg.org/ftp/gcrypt/libassuan/${LIBASSUAN_BINARY}.tar.bz2 && \
+    wget -q https://gnupg.org/ftp/gcrypt/libassuan/${LIBASSUAN_BINARY}.tar.bz2 && \
     tar -jxf ${LIBASSUAN_BINARY}.tar.bz2
 RUN \
     cd ${LIBASSUAN_BINARY} && \
@@ -88,7 +88,7 @@ RUN \
     cp -R /libassuan/usr/* /usr/
 
 RUN \
-    wget https://gnupg.org/ftp/gcrypt/gpgme/${GPGME_BINARY}.tar.bz2 && \
+    wget -q https://gnupg.org/ftp/gcrypt/gpgme/${GPGME_BINARY}.tar.bz2 && \
     tar -jxf ${GPGME_BINARY}.tar.bz2
 RUN \
     cd ${GPGME_BINARY} && \
@@ -100,7 +100,7 @@ RUN \
     cp -R /gpgme/usr/* /usr/
 
 RUN \
-    wget https://git.yoctoproject.org/cgit/cgit.cgi/opkg/snapshot/${OPKG_BINARY}.tar.gz  && \
+    wget -q https://git.yoctoproject.org/cgit/cgit.cgi/opkg/snapshot/${OPKG_BINARY}.tar.gz  && \
     tar -zxf ${OPKG_BINARY}.tar.gz
 RUN \
     cd ${OPKG_BINARY} && \
@@ -112,7 +112,7 @@ RUN \
     ls -lR /opkg
 
 RUN \
-    wget https://ftp.gnu.org/gnu/glibc/${GLIBC_BINARY}.tar.bz2 && \
+    wget -q https://ftp.gnu.org/gnu/glibc/${GLIBC_BINARY}.tar.bz2 && \
     tar -jxf ${GLIBC_BINARY}.tar.bz2
 RUN \
     mkdir glibc-build && \
@@ -125,7 +125,7 @@ RUN \
 
 COPY opkg-builder/ ./
 RUN \
-    wget https://ftp.gnu.org/gnu/make/${MAKE_BINARY}.tar.bz2 && \
+    wget -q https://ftp.gnu.org/gnu/make/${MAKE_BINARY}.tar.bz2 && \
     tar -jxf ${MAKE_BINARY}.tar.bz2
 RUN \
     patch -p0 < ../make-4.2.1.patch && \
